@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@property --bg-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --my-rainbow: conic-gradient(from var(--bg-angle) at 50% 50%, #4eeaff, #5463ff, #b35dff, #ff547d, #ff7c43, #fff847, #76ff4f, #49ffd2, #44efff);
+  --my-linear: linear-gradient(140deg, #4eeaff, #5463ff, #b35dff, #ff547d, #ff7c43, #fff847, #76ff4f, #49ffd2, #44efff);
+  --my-shadow: text-shadow: -10px 0 10px rgba(0, 0, 0, 0), 0 10px 10px rgba(0, 0, 0, 0), 10px 0 10px rgba(0, 0, 0, 0), 0 -10px 30px rgba(0, 0, 0, 0);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  align-items:center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.my-text {
+  transition: all;
+  white-space: nowrap;
+  background-image: url('/background.svg');
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(-1px 0px 1px black) drop-shadow(-1px -1px 1px dimgray) drop-shadow(0 1px 1px gray) drop-shadow(1px 1px 1px darkgray);
+}
+
+.heading-text {
+  transition: all;
+  white-space: nowrap;
+  color: transparent;
+  filter: drop-shadow(-1px 0px 1px black) drop-shadow(-1px -1px 1px dimgray) drop-shadow(0 1px 1px gray) drop-shadow(1px 1px 1px darkgray);
+}
+.green{
+  background-image: url('/background.svg');
+  background-clip: text;
+}
+.blue{
+  background-image: url('/background.svg');
+  background-clip: text;
+}
+.red{
+  background-image: url('/background.svg');
+  background-clip: text;
+}
+.multi{
+  background-image: url('background.svg');
+  background-clip: text;
+}
+
+.btn {
+  border-radius: 20px;
+  padding: 0.15em 0.4em;
+  font-size: 1.75em;
+  font-weight: 900;
+  color: transparent;
+  background: text url('/background.svg'), padding-box linear-gradient(140deg, black -10%, dimgrey 50%, black 110%), border-box url('/background.svg');
+  font-family: inherit;
+  border: 5px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+      background: text url('/background.svg'), padding-box linear-gradient(140deg, dimgrey -10%, black 50%, dimgrey 110%), border-box url('/background.svg');
+      scale: 1.05;
+    }
+}
+
+.page {
+  background: padding-box linear-gradient(140deg, black 0%, dimgrey 50%, black 110%), border-box url('/background.svg');
+  border: 6px solid transparent;
+  box-shadow: -2px 2px 6px 4px rgba(200, 200, 200, 0.7);
+  border-radius: 35px;
+  padding: 40px;
+  place-self: center;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background: #fafafa;
+  }
+  .page{
+    background: padding-box linear-gradient(140deg, white 0%, grey 50%, white 110%), border-box url('/background.svg');
+    border: 6px solid transparent;
+    box-shadow: -2px 2px 6px 4px rgba(50, 50, 50, 0.7);
+  }
+  .btn{
+    background: text url('/background.svg'), padding-box linear-gradient(140deg, white -10%, grey 50%, white 110%), border-box url('/background.svg');
+    &:hover{
+      background: text url('/background.svg'), padding-box linear-gradient(140deg, grey -10%, white 50%, grey 110%), border-box url('/background.svg');
+      scale: 1.05;
+    }
+  }
+}
+
+@keyframes rainbowAnimation{
+  100% {
+    --bg-angle: 360deg;
+  }
+}
+
