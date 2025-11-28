@@ -9,7 +9,7 @@ async function setupDatabase(){
     // await db.query('DROP TABLE IF EXISTS tasks;');
     // await db.query('DROP TYPE priority;');
     // await db.query('CREATE TYPE priority AS ENUM(\'high\', \'medium\', \'low\')');
-    await db.query('CREATE TABLE IF NOT EXISTS tasks ( id serial NOT NULL, title character varying(50) NOT NULL, description text, status character varying(50) NOT NULL DEFAULT "on-going", due_date date, CONSTRAINT tasksd_pkey PRIMARY KEY (id))');
+    await db.query('CREATE TABLE IF NOT EXISTS tasks ( id serial NOT NULL, title character varying(50) NOT NULL, description text, status character varying(50) NOT NULL, due_date date, CONSTRAINT tasksd_pkey PRIMARY KEY (id))');
   } catch (error){
     console.log('There was an error whilst setting up the database.');
     console.error(error);
