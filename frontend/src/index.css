@@ -67,7 +67,7 @@ body {
   background-clip: text;
 }
 .multi{
-  background-image: url('background.svg');
+  background-image: url('/background.svg');
   background-clip: text;
 }
 
