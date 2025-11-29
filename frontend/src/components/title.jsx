@@ -6,9 +6,9 @@ export default function Title (props){
   console.log(current)
   return (
     <div  className="absolute left-50 top-10 flex justify-center items-center self-center justify-self-center w-full -translate-x-50">
-      <motion.h1 className="my-text text-5xl font-black font-stretch-115% flex self-center justify-self-center py-4 -mt-4">
+      <h1 className="my-text text-5xl font-black font-stretch-115% flex self-center justify-self-center py-4 -mt-4">
         {props.title}
-      </motion.h1>
+      </h1>
     </div>
   )
 }
