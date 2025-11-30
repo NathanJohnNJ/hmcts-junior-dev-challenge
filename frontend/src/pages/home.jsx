@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <div className="h-screen w-screen p-10 flex flex-col items-center justify-center">
       <div className="relative h-fit w-full p-4 flex flex-col self-center place-self-center justify-center items-center mt-20 min-h-[75dvh]">
-        <button class="rounded-xl shadow-2xl hover:scale-110 transition-all duration-100" onClick={()=>setOpen(true)} style={{display: open ? 'none' : 'flex'}}>
-          <FcAddRow class="p-4 m-8 h-20 w-20"/>
+        <button className="rounded-xl shadow-2xl hover:scale-110 transition-all duration-100" onClick={()=>setOpen(true)} style={{display: open ? 'none' : 'flex'}}>
+          <FcAddRow className="p-4 m-8 h-20 w-20"/>
         </button>
         <div style={{ display: open ? 'flex' : 'none' }}>
           <Card />
