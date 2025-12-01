@@ -24,6 +24,7 @@
     "dotenv": "^17.2.3",
     "globals": "^16.4.0",
     "react-icons": "^5.5.0",
-    "vite": "^7.1.12"
+    "vite": "^7.1.12",
+    "vite-plugin-dotenvx": "^0.1.1"
   }
 }

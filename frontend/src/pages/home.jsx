@@ -2,13 +2,21 @@ import React, { useEffect, useState } from 'react';
 import Card from '../components/card';
 import Heading from '../components/heading';
 import Tile from '../components/tile';
+import Board from '../components/board';
 import { FcAddRow } from "react-icons/fc";
+import { getAllTasks } from '../api/tasks';
 
 export default function Home() {
   const [open, setOpen] = useState(false);
-  let tasks = [];
+  const [tasks, setTasks] = useState([]);
 
-  
+  useEffect(() => {
+    async function getTasks(){
+      const tasks = await getAllTasks();
+      return tasks;
+    }
+    setTasks(getTasks())
+  })
    
   return (
     <div className="h-screen w-screen p-10 flex flex-col items-center justify-center">
@@ -20,9 +28,11 @@ export default function Home() {
           <Card />
         </div>
         {tasks &&
-          <>
-          
-          </>
+          <Board>
+          { tasks.map((task,i)=>{
+            <Tile key={i} task={task} />
+          })}
+          </Board>
         }
       </div>
     

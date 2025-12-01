@@ -8,6 +8,8 @@ const taskRouter = require("./src/routes/tasks");
 const setupDatabase = require('./src/db/dbSetup').setupDatabase;
 app.use(cors());
 app.use(express.json());
+app.use(require('@dotenvx/dotenvx').config());
+
 setupDatabase();
 
 app.use('/api/tasks', taskRouter);
