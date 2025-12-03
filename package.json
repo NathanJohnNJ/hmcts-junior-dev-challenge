@@ -11,7 +11,7 @@
     "dev:backend": "cd backend && npm run dev",
     "start:frontend": "cd frontend && npm run preview",
     "dev:frontend": "cd frontend && npm run dev",
-    "dev": "dotenvx run -- npx concurrently --kill-others-on-fail \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev": "npx concurrently --kill-others-on-fail \"npm run dev:backend\" \"npm run dev:frontend\"",
     "start": "dotenvx run -- npx concurrently --kill-others-on-fail \"npm run start:backend\" \"npm run start:frontend\"",
     "build": "cd frontend && npm run build"
   },

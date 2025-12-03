@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FcDeleteRow, FcCheckmark, FcCancel } from "react-icons/fc";
+import { createTask } from '../api/tasks';
 
 export default function Card({children}){
   const [title, setTitle] = useState('');
@@ -16,9 +17,10 @@ export default function Card({children}){
         "message": "You must give your task a title."
       })
       setShowMessage(true);
-    } else if (title === '') {
+    } else {
+      createTask(title, description, status, dueDate)
       setMessage({
-        "message": "You must give your task a title."
+        "message": "Task successfully created."
       })
       setShowMessage(true);
     }
@@ -45,7 +47,7 @@ export default function Card({children}){
             <button type="button" className={status == 'overdue' ? "rounded-r-xl bg-red-700/80 hover:bg-red-700 text-white font-bold transition-all scale-105 px-2 py-1" : "rounded-r-xl bg-red-700/50 hover:bg-red-700 text-white font-medium transition-all hover:scale-105 px-2 py-1"} value="overdue" onClick={e => setStatus('overdue')}>Overdue</button>
           </div>
         </label>
-        <label htmlFor='dueDate' className="font-black text-xl flex items-center">DueDate<input className="border-2 shadow-2xl rounded-xl px-2 mx-4 font-medium text-lg text-slate-600 datepicker-input" name="dueDate" id="dueDate" type="date" value={dueDate} onChange={e => setDueDate(e.target.value)}></input></label>
+        <label htmlFor='cryl ' className="font-black text-xl flex items-center">DueDate<input className="border-2 shadow-2xl rounded-xl px-2 mx-4 font-medium text-lg text-slate-600 datepicker-input" name="dueDate" id="dueDate" type="date" value={dueDate} onChange={e => setDueDate(e.target.value)}></input></label>
         <div className="flex items-center justify-evenly">
           <button className="rounded-xl shadow-2xl hover:scale-110 scale-50 transition-all duration-100" onClick={saveHandler} style={{ display: open ? 'hidden' : 'flex' }}>
             <FcCheckmark className="p-0 m-8 h-20 w-20" />

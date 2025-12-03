@@ -3,9 +3,9 @@ const router = express.Router();
 const Task = require('../models/taskModel');
 
 // get all tasks
-router.get('/all', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const allTasks = await Task.allTasks(req.params.userid);
+    const allTasks = await Task.allTasks();
     res.status(201).json({message: `All tasks found.`, tasks: allTasks});
   } catch (err) {
     console.error(err);

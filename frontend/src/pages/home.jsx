@@ -12,8 +12,7 @@ export default function Home() {
 
   useEffect(() => {
     async function getTasks(){
-      const tasks = await getAllTasks();
-      return tasks;
+      return await getAllTasks();
     }
     setTasks(getTasks())
   })
@@ -29,9 +28,9 @@ export default function Home() {
         </div>
         {tasks &&
           <Board>
-          { tasks.map((task,i)=>{
+          {/* { tasks.map((task,i)=>{
             <Tile key={i} task={task} />
-          })}
+          })} */}
           </Board>
         }
       </div>

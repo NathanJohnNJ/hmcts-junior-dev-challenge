@@ -1,4 +1,5 @@
-require('dotenv').config();
+// require('dotenv').config();
+require('@dotenvx/dotenvx').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -8,7 +9,6 @@ const taskRouter = require("./src/routes/tasks");
 const setupDatabase = require('./src/db/dbSetup').setupDatabase;
 app.use(cors());
 app.use(express.json());
-app.use(require('@dotenvx/dotenvx').config());
 
 setupDatabase();
 
